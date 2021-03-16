@@ -1,0 +1,22 @@
+{
+  "name": "study",
+  "version": "1.0.0",
+  "description": "Repo for study and train with JS.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Taxa8888/study.git"
+  },
+  "author": "Pavel Ponamarev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Taxa8888/study/issues"
+  },
+  "homepage": "https://github.com/Taxa8888/study#readme",
+  "devDependencies": {
+    "eslint": "7.22.0"
+  }
+}
