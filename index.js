@@ -1,18 +1,45 @@
-const person = new Object(
-    {
-        name: 'Pavel',
-        age: 31,
-        greet: function () {
-            console.log('Greet!');
-        }
-    }
-)
-
-Object.prototype.sayHello = function() {
-    console.log('Hello!');
+function hello() {
+    console.log('Hello', this);
 }
 
-const lena = Object.create(person)
-lena.name = 'Elena'
+const person = {
+    name: 'Pavel',
+    age: 31,
+    sayHello: hello,
+    sayHelloWindow: hello.bind(document),
+    logInfo: function (job, phone) {
+        console.group(`${this.name} info:`);
+        console.log(`Name is ${this.name}`);
+        console.log(`Age is ${this.age}`);
+        console.log(`Job is ${job}`);
+        console.log(`Phone is ${phone}`);
+        console.groupEnd();
+    }
+}
 
-const str = new String('I am string')
+const lena = {
+    name: 'Elena',
+    age: 23
+}
+
+// person.logInfo.bind(lena, 'Frontend', '8-999-111-22-33')();
+// person.logInfo.call(lena, 'Frontend', '8-999-111-22-33');
+// person.logInfo.apply(lena, ['Frontend', '8-999-111-22-33']);
+
+/// =================
+
+const array = [1, 2, 3, 4, 5];
+
+// function multBy(arr, n) {
+//     return arr.map(function(i) {
+//         return i * n
+//     })
+// }
+
+Array.prototype.multBy = function (n) {
+    return this.map(function (i) {
+        return i * n
+    })
+}
+
+console.log(array.multBy(20));
